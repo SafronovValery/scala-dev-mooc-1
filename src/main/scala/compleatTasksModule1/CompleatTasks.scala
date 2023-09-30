@@ -4,6 +4,9 @@ import scala.annotation.tailrec
 
 object CompleatTasks {
 
+  //в Commit 2 - несущественные исправления удучшающие стиль.
+
+
   /**
    * Задание 1. Написать ф-цию метод isEven, которая будет вычислять является ли число четным
    */
@@ -22,21 +25,21 @@ object CompleatTasks {
 
   def isOdd(x: Int): Boolean = !isEven(x)
 
-  def toOdd(ns: Seq[Int]): Seq[Boolean] = ns.map(isOdd(_))
+  def toOdd(ns: Seq[Int]): Seq[Boolean] = ns.map(isOdd)
 
   /**
    * Задание 3. Написать ф-цию метод filterEven, которая получает на вход массив чисел и возвращает массив тех из них,
    * которые являются четными
    */
 
-  def filterEven(arr: Array[Int]): Array[Int] = arr.map(x => if (isEven(x)) Some(x) else None).flatten
+  def filterEven(arr: Array[Int]): Array[Int] = arr.flatMap(x => Some(x).filter(isEven))
 
   /**
    * Задание 4. Написать ф-цию метод filterOdd, которая получает на вход массив чисел и возвращает массив тех из них,
    * которые являются нечетными
    */
 
-  def filterOdd(arr: Array[Int]): Array[Int] = arr.map(x => if (isEven(x)) None else Some(x)).flatten
+  def filterOdd(arr: Array[Int]): Array[Int] = arr.flatMap(x => if (isEven(x)) None else Some(x))
 
 
   def filterOdd2(arr: Array[Int]): Array[Int] = {

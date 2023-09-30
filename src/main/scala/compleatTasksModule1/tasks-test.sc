@@ -22,6 +22,6 @@ isOdd(3)
 isOdd(1)
 isOdd(-1)
 
-def filterEven(arr: Array[Int]): Array[Int] = arr.map(x => if (isEven(x)) Some(x) else None).flatten
+def filterEven(arr: Array[Int]): Array[Int] = arr.flatMap(x => Some(x).filter(isEven))
 
 filterEven(Array(1,2,3,4,0,5,-5,-6))
